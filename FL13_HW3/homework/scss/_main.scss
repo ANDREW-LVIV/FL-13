@@ -1,0 +1,246 @@
+@mixin logo {
+	display: flex;
+	p {
+		font-family: $font2; 
+		font-size: 24px;
+		font-weight: 600;
+		margin-left: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		line-height: 1.3;
+		span {
+			font-size: 10px;
+		}
+	}
+	& img {
+		width: 45px;
+		height: 45px;
+	}
+}
+@mixin link($color, $fontSize: 14px, $fontWeight: normal) {
+	a {
+		color: $color;
+		font-size: $fontSize;
+		font-weight: $fontWeight;
+		&:hover {
+			color: darken($color, 10%);
+			text-decoration: none;
+		}
+		&:active {
+			color: darken($color, 30%);
+			text-decoration: none;
+		}
+	}
+}
+@mixin button {
+	width: 120px;
+	height: 40px;
+	background-color: $bgButtonColor;
+	border: none;
+	color: $link;
+	font-weight: 600;
+	&:hover {
+		background-color: lighten($bgButtonColor, 10%);
+		cursor: pointer;
+	}
+}
+@mixin highligt-text {
+	content: '';
+	display: block;
+	height: 40px;
+	background-color: $highligtColor;
+	position: absolute;	
+	z-index: -1;
+}
+$heading-font-sizes: (
+	header: 54px,
+	card: 20px,
+	banner: 24px,
+	);
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: $bgBodyColor;
+	background-position: center 50%;
+	background-size: cover;
+	color: $textColor;
+	font-family: $font; 
+	font-size: $bodyFontSize;
+}
+.header {
+	background-image: $headerImage;
+	background-repeat: no-repeat;
+	background-position: center 50%;
+	background-size: cover;
+	height: 650px;
+	border-bottom-right-radius: 35%;
+	padding-top: 20px;
+	&-wrap{
+		margin: 0 auto;
+		max-width: 80%;	
+	}
+	.landing-logo {
+		@include logo;
+	}
+	&_heading {
+		font-size: map-get($heading-font-sizes, header);
+		font-weight: bolder;
+		max-width: 500px;
+		margin: 70px 0 20px;
+		position: relative;
+		z-index: 1;
+		&::before {
+			width: 230px;
+			top: 90px;
+			@include highligt-text;
+		}
+	}
+	&_text {
+		font-size: 14px;
+		font-weight: 400;
+		font-family: $font2;
+		white-space: pre-line;
+		padding: 10px 0;
+	}
+	&_button {
+		@include button;
+		margin: 35px 0;
+	}
+	.login {
+		margin-left: 100px;
+	}
+	@include link($link, 16px, 500);
+}
+
+.section {
+	margin: 0 auto;
+	width: 70%;
+	&_text {
+		text-align: center;
+		font-size: 32px;
+		font-weight: 600;
+		margin: 20px 0;
+		position: relative;
+		z-index: 1;
+		&::before {
+			width: 144px;
+			bottom: 6px; 
+			left: 480px;
+			@include highligt-text;
+		}
+	}
+	&_card_wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&_card {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $bgBlockColor;
+		width: 720px;
+		margin: 10px 0;
+		border-radius: 5px;
+		box-shadow: 0 3px 6px $shadowBlockColor;
+		&_img {
+			width: auto;
+			height: 120%;
+			border-radius: 5px;
+			margin: 10px;	
+		}
+		&_right_container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: justify;
+			margin: 0 60px;
+			padding: 10px;
+			font-family: $font2; 
+			@include link($textColor2);
+		}
+		&_heading {
+			color: $textHeadColor;
+			font-family: $font;
+			font-size: map-get($heading-font-sizes, card);
+			font-weight: 600;
+			padding: 5px 0;
+		}
+		&_text {
+			color: $textColor2;
+			padding: 5px 0;
+		}
+	}
+	&_card:nth-child(1) img{
+		width: 31%;
+		height: fit-content;	
+	}
+	&_card:nth-child(2) img{
+		width: 29%;
+		height: fit-content;	
+	}
+	&_link {
+		padding: 5px 0;
+	}
+	&_banner {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		background: $bgBanner;
+		max-width: 80%;
+		margin: 90px auto -55px;
+		position: relative;
+		border-radius: 5px;
+		&_text_wrap {
+			padding: 14px;
+		}
+		&_heading {
+			font-size: map-get($heading-font-sizes, banner);
+			font-weight: bold;
+			padding: 10px 0;
+			position: relative;
+			z-index: 1;
+			&::before {
+				width: 55px;
+				bottom: 10px;
+				left: 95px;
+				@include highligt-text;
+			};
+		}
+		&_text {
+			color: $textColor2;
+			padding: 6px 0 20px;
+		}
+		&_button {
+			@include button;
+		}
+	}
+}
+
+.footer {
+	background-color: $bgBlockColor;
+	color: $textColor2;
+	font-family: $font2;
+	&-wrap {
+		@extend .header-wrap;
+		padding: 90px 0 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&_logo {
+		@include logo;
+	}
+	&_text {
+		flex-basis: 27%;
+		font-size: 14px
+	}
+	&-cr {
+		font-size: 16px;
+	}
+}
