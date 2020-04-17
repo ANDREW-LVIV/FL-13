@@ -1,0 +1,151 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #FFF;
+	font-family: 'Merriweather', serif;
+	font-size: 14px;
+	color: #777;
+	margin: 0 auto;
+}
+
+.wrap {
+	max-width: 900px;
+}
+
+
+.header-top {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 10vh;
+}
+.logo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #555;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+.navbar ul{
+	list-style: none;
+	display: flex;
+}
+.nav-item-link {
+	text-decoration: none;
+	font-size: 16px;
+	color: #777;
+	letter-spacing: 2px;
+	padding: 5px 15px;
+}
+.nav-item-link:hover {
+	color: #BFBA55;
+}
+.header-cover {
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/home-bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	height: 90vh;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.header-cover h1 {
+	color: #FFF;
+	font-size: 60px;
+	padding: 10px 0;
+}
+.header-cover p {
+	color: #BFBA55;
+	padding: 10px 0 40px;
+}
+.button{
+	background-color: #FFF;
+	border-radius: 30px 30px 30px 30px;
+	padding: 14px 22px;	
+	color: #777;	
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.header-cover a {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+
+.main-content {
+	display: flex;
+	flex-direction: column;	
+	align-items: baseline;
+	padding: 0px 4px 35px;
+	margin: 30px auto;
+}
+.article {
+	padding: 80px 0 60px;
+	border-bottom: 1px solid #F0F0F0;
+}
+.article:last-child {
+	border-bottom: none;
+}
+.article img {
+	max-width: 100%;
+}
+.article h2 {
+	color: #000;
+	margin: 40px 0 0;
+}
+.article-info {
+	display: flex;
+	align-items: center;
+	margin: 20px 0 0;
+}
+.article-info img {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+}
+.article-info span {
+	margin: 0 10px;
+}
+.article-prevtext {
+	line-height: 2;
+	margin: 30px 0 40px;
+}
+.article-button {
+	font-size: 14px;
+	border: 1px solid #CCC;
+}
+
+
+footer {
+	background-color: #000;
+
+}
+.footer-wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	padding: 90px 4px;
+	margin: 0px auto;
+}
+.contact-block {
+	max-width: 440px;
+}
+.contact-title {
+	color: #FFF;
+	font-size: 26px;
+	font-weight: 600;
+	padding: 10px 0;
+}
+.contact-text-about {
+	line-height: 2;
+}
+.contact-text p {
+	padding: 10px 0;
+}
