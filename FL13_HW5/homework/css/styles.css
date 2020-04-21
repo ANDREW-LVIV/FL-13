@@ -1,0 +1,281 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: roboto;
+	background-color: #0b192f;
+	color: #484848;
+	font-size: 14px;
+}
+.wrapper {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+header {
+	background-color: #162b4d;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 40px 20px 20px;
+}
+#burger-menu {
+	display: none;
+}
+.logo {
+	font-size: 26px;
+	font-weight: 300;
+	color: #d5d9df;
+}
+.logo span{
+	font-size: 24px;
+	font-weight: 100;
+	color: #7f184f;
+}
+.navbar ul{
+	list-style: none;
+	display: flex;
+}
+.nav-item-link {
+	text-decoration: none;
+	font-size: 16px;
+	color: #fff;
+	opacity: 0.9;
+	padding: 26px 24px;
+}
+.nav-item-link:hover {
+	color: #b8b8b8;
+	background-color: #445570;
+}
+
+.content-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 20px 0;
+}
+main {
+	display: flex;
+	flex-direction: column;	
+	max-width: 73%;	
+}
+.post-item {
+	display: flex;
+}
+.post-item:nth-child(even) {
+	flex-direction: row-reverse;
+	text-align: right;
+}
+.post-item:nth-child(even) .post-content {
+	flex-direction: row-reverse;
+}
+.post-item .post-img {
+	width: 50%;	
+} 
+.post-item .post-img:hover,
+.post-item .post-content:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}
+.post-item .post-content {
+	display: flex;
+	width: 50%;	
+}
+.post-item .post-text {
+	width: 80%;	
+	padding: 30px;
+}
+.post-text,
+.news-text {
+	opacity: 0.8;
+}
+.post-text h2 {
+	font-size: 32px;
+	font-weight: 300;
+}
+.post-text p {
+	padding: 10px 0;
+	line-height: 2;
+}
+.post-time {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-weight: 200;	
+	padding: 15px 5px;
+}
+.post-time-day {
+	font-size: 40px;
+}
+.post-time-month {
+	font-size: 18px;
+}
+.post-img img,
+.news-img img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+.post-1 {
+	background: #F3D250;
+}
+.post-2 {
+	background: #8D8741;
+}
+.post-3 {
+	background: #659DBD;
+}
+.post-4 {
+	background: #DAAD86;
+}
+
+aside {
+	max-width: 25%;
+}
+aside .news-item {
+	background-color: #fff;
+	margin-bottom: 20px;
+}
+.news-text {
+	padding: 20px;
+}
+.news-text h3 {
+	font-size: 26px;
+	font-weight: 300;
+	padding: 10px 0;
+}
+.news-text p {
+	padding: 20px 0;
+	line-height: 1.5;
+}
+.news-item a {
+	display: inline-block;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
+	border: 2px solid #000000;
+	text-transform: uppercase;
+}
+.news-item a:hover {
+	border: 2px solid transparent;
+	border-bottom: 2px solid #000000;
+}
+
+.banner {
+	position: relative;
+	height: 350px;
+}
+.banner .post-img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+.banner .post-text {
+	position: absolute;
+	top: 40%;
+	color: #fff;
+	padding: 15px;
+}
+
+footer {
+	background-color: #162b4d;
+	color: #fff;
+	opacity: 0.6;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 20px;
+}
+footer p {
+	padding: 2px 0;
+}
+
+
+@media (max-width: 1400px) {
+	body {
+		font-size: 12px;
+	}
+	.wrapper {
+		max-width: 1000px;
+	}
+	.news-text h3 {
+		font-size: 22px;
+	}	
+	.post-text h2 {
+		font-size: 28px;
+	}
+}
+
+@media (max-width: 768px) {
+	.wrapper {
+		width: 98%;
+	}
+	header {
+		flex-direction: column;	
+	}
+	main {
+		max-width: 69%;
+	}
+	aside {
+		max-width: 29%;
+	}
+	#burger-menu {
+		color: #fff;
+		display: block;
+		font-size: 20px;
+		padding-bottom: 30px; 
+	}
+	#burger-menu:hover {
+		cursor: pointer;
+	}
+	.navbar {
+		display: none;
+	}
+	.post-item,
+	.post-item:nth-child(even),
+	.post-item .post-content,
+	.post-item:nth-child(even) .post-content {
+		flex-direction: column;	
+		align-items: center;	
+		text-align: left;
+	}
+	.post-item,
+	.post-item:nth-child(even),
+	.post-item .post-img,
+	.post-item .post-content,
+	.post-item:nth-child(even) .post-content,
+	.post-item .post-text {
+		box-sizing: border-box;
+		width: 100%;
+	}
+	.post-item .post-text {
+		padding: 30px 30px 0;
+	}
+	.post-time {
+		display: block;
+		padding-top: 0;
+	}
+	footer {
+		text-align: center;
+		flex-direction: column;
+		align-items: center;
+	}
+	footer div {
+		padding: 5px;
+	}
+}
+
+@media (max-width: 480px) {
+	.content-wrapper {
+		flex-direction: column;
+	}
+	main,
+	aside {
+		max-width: 100%;
+	}
+	aside {
+		padding-top: 20px;
+	}
+}
