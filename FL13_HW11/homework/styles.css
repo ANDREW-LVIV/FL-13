@@ -29,3 +29,31 @@ p.file:hover {
 .empty {
 	font-style: italic;
 }
+
+.menu{
+	background-color: #f4f4f4;
+	color: #333;
+	border: 1px solid #aaa;
+	box-shadow: 2px 2px 2px #999;
+	border-radius: 0.2rem;
+	list-style: none;
+	position: fixed;
+	padding: 0;
+}
+.menu.off{
+	top: -200%;
+	left: -200%;
+}
+.menu-item{
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 1rem;
+	font-weight: 100;
+	padding: 0 1rem;
+	cursor: pointer;
+}
+.menu-item:hover,
+.menu-item:active{
+	color: #000;
+	font-weight: 500;
+}
