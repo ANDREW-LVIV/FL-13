@@ -1,0 +1,31 @@
+body {
+	font-size: 18px;
+}
+ul {
+	list-style: none;
+}
+p {
+	margin: 0;
+	height: 30px;
+}
+.material-icons {
+	color: #EDBC0B;
+	vertical-align: text-bottom;
+}
+.file .material-icons {
+	color: #B0B0B0;
+}
+p.folder:hover,
+p.file:hover {
+	cursor: pointer;
+	background-color: #E3E3E3;
+}
+.close {
+	display: none;
+}
+.open {
+	display: block;
+}
+.empty {
+	font-style: italic;
+}
