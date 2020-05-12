@@ -95,7 +95,10 @@ function tree(data, node) {
       addMenuListeners();
     });
     function addMenuListeners(){
-      document.getElementById('rename').addEventListener('click', itemRename);
+      document.getElementById('rename').addEventListener('click', function () {
+        item.classList.add('selectItem');
+        itemRename();
+      });
       document.getElementById('delete').addEventListener('click', itemDelete);
     }
     function itemRename(){
@@ -120,6 +123,7 @@ function tree(data, node) {
       menu.classList.add('off');
       menu.style.top = TWO_HUNDRED;
       menu.style.left = TWO_HUNDRED;
+      item.classList.remove('selectItem');
     }
 
     item.append(itemIco);
@@ -141,9 +145,8 @@ function tree(data, node) {
 
   });
 
-
   node.append(parent);
-  node.firstElementChild.classList.toggle('open'); 
+  node.firstElementChild.classList.remove('close'); 
 
 }
 
