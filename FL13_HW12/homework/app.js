@@ -196,4 +196,6 @@ function act(action, id) {
 	}
 }
 
-list(data, root);
+window.addEventListener('DOMContentLoaded', function () {
+	list(data, root);
+});

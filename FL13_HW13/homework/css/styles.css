@@ -1,0 +1,12 @@
+body {
+	background-color: white;
+	font-size: 14px;
+	font-family: "Source Sans Pro", sans-serif;
+}
+img {
+	max-width: 100%;
+}
+.btn-primary {
+	background-color: #ff7f50;
+	border: none;
+}
