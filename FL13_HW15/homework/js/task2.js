@@ -17,15 +17,18 @@ function Transport () {
 		}
 		return result;
 	}
-	
+
+	let fadeOutDelay = null;
 	this.drive = function() {
+		if(fadeOutDelay) {
+			clearInterval(fadeOutDelay);
+		}
 		if (this.currentSpeed > 0){
 			console.log('Already driving');
 		}else{
 			console.log('Let’s drive');
 		}
-		setInterval(() => {
-			clearInterval(this.stop);
+		fadeOutDelay = setInterval(() => {
 			this.currentSpeed += 20;
 			console.log(this.currentSpeed);
 			if(this.currentSpeed > this.maxSpeed){
@@ -39,12 +42,15 @@ function Transport () {
 	}
 
 	this.stop = function() {
+		if(fadeOutDelay) {
+			clearInterval(fadeOutDelay);
+		}
 		if (this.currentSpeed > 0){
-			setInterval(() => {
-				clearInterval(this.drive);
+			fadeOutDelay = setInterval(() => {
 				this.currentSpeed -= 20;
 				console.log(this.currentSpeed);
 			if(this.currentSpeed <= 0){
+				clearInterval(fadeOutDelay);
 				console.log(this.name + this.model + this.engine + ' is stoped');
 			}
 			}, speedStepDown);
