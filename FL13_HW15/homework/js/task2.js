@@ -3,6 +3,7 @@ function Transport () {
 	const maxSpeedMotorcycle = 30;
 	const speedStepUp = 2000;
 	const speedStepDown = 1500;
+	this.maxSpeedCounter = 0;
 
 	this.getInfo = function () {
 		const result = {
@@ -26,17 +27,20 @@ function Transport () {
 		if (this.currentSpeed > 0){
 			console.log('Already driving');
 		}else{
-			console.log('Let’s drive');
+			if(this.name === 'Motorcycle'){
+				console.log('Let’s drive');
+			}
 		}
 		fadeOutDelay = setInterval(() => {
 			this.currentSpeed += 20;
+			this.maxSpeedCounter += 20;
 			console.log(this.currentSpeed);
 			if(this.currentSpeed > this.maxSpeed){
 				console.log('speed is too high, SLOW DOWN!');
 			}
-						if(this.name === 'Motorcycle' && this.currentSpeed >= maxSpeedMotorcycle){
+			if(this.name === 'Motorcycle ' && this.currentSpeed >= maxSpeedMotorcycle){
 				console.log('Engine overheating');
-			}			
+			}
 		}, speedStepUp);
 
 	}
@@ -45,13 +49,21 @@ function Transport () {
 		if(fadeOutDelay) {
 			clearInterval(fadeOutDelay);
 		}
+		if(this.currentSpeed < this.maxSpeedCounter){
+			console.log('Already slows down');
+		}
 		if (this.currentSpeed > 0){
 			fadeOutDelay = setInterval(() => {
 				this.currentSpeed -= 20;
 				console.log(this.currentSpeed);
 			if(this.currentSpeed <= 0){
 				clearInterval(fadeOutDelay);
-				console.log(this.name + this.model + this.engine + ' is stoped');
+			}
+			if(this.name === 'Motorcycle' && this.currentSpeed <= 0){
+				console.log(this.name + ' ' + this.model + this.engine + ' is stoped. Good drive');
+			}
+			if((this.name === 'Vehicle' || this.name === 'Car') && this.currentSpeed <= 0){
+				console.log(this.name + ' is stopped. Maximum speed during the drive was ' + this.maxSpeedCounter);
 			}
 			}, speedStepDown);
 		}
@@ -79,6 +91,7 @@ function Transport () {
 
 function Vehicle(color, engine) {
 	Transport.call(this, Vehicle);
+	this.name = 'Vehicle';
 	this.color = color;
 	this.engine = engine;
 	this.maxSpeed = 70;
@@ -86,7 +99,7 @@ function Vehicle(color, engine) {
 
 function Car(model, color, engine) {
 	Transport.call(this, Car);
-	this.name2 = 'Car';
+	this.name = 'Car';
 	this.color = color;
 	this.engine = engine;
 	this.model = model;
@@ -104,7 +117,7 @@ function Motorcycle (model, color, engine) {
 
 // const vehicle = new Vehicle('red', 'v8');
 // const car = new Car('Toyota', 'black', 'v8');
-const motorcycle = new Motorcycle('Suzuki', 'white', 'GSX-R600');
+// const motorcycle = new Motorcycle('Suzuki', 'white', 'GSX-R600');
 
 // console.log(vehicle.getInfo());
 
@@ -114,6 +127,6 @@ const motorcycle = new Motorcycle('Suzuki', 'white', 'GSX-R600');
 // console.log(car.upgradeEngine('V8', 140));
 // console.log(car.getInfo());
 
-console.log(motorcycle.getInfo());
+// console.log(motorcycle.getInfo());
 // console.log(motorcycle.drive());
 // console.log(motorcycle.stop());
